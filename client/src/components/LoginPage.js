@@ -10,12 +10,10 @@ const LoginPage = () => {
   const handleLogin = async (credentialResponse) => {
     try {
       const { credential } = credentialResponse;
-      // Send Google ID token to backend
       const res = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/auth/google`, {
         token: credential
       });
       const { token, user } = res.data;
-      // Store JWT token
       localStorage.setItem('token', token);
       localStorage.setItem('userName', user.name);
       navigate('/create-campaign');
@@ -31,9 +29,13 @@ const LoginPage = () => {
   };
 
   return (
-    <div style={{ padding: '50px', textAlign: 'center' }}>
-      <h2>Xeno CRM - Login</h2>
-      <GoogleLogin onSuccess={handleLogin} onError={handleError} />
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600 p-4">
+      <div className="bg-white bg-opacity-20 backdrop-blur-lg rounded-xl p-8 max-w-md w-full shadow-xl text-center">
+        <h2 className="text-white text-3xl font-bold mb-6">Xeno CRM - Login</h2>
+        <div className="flex justify-center">
+          <GoogleLogin onSuccess={handleLogin} onError={handleError} />
+        </div>
+      </div>
     </div>
   );
 };
