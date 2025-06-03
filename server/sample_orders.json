@@ -1,0 +1,5 @@
+[
+  { "orderId": "ORD001", "product": "Laptop", "amount": 1200, "date": "2023-06-01", "customerId": "<ObjectId of Alice>" },
+  { "orderId": "ORD002", "product": "Phone", "amount": 600, "date": "2023-06-05", "customerId": "<ObjectId of Bob>" },
+  { "orderId": "ORD003", "product": "Book", "amount": 20, "date": "2023-06-10", "customerId": "<ObjectId of Alice>" }
+]
